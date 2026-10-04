@@ -6,13 +6,11 @@ import { menuData } from '../utils/menuData';
 export default function Tela1() {
   return (
     <View style={styles.container}>
-      <Text style={styles.headerTitle}>🍕 Nossas Pizzas</Text>
+      <Text style={styles.headerTitle}>Cardápio de Pizzas</Text>
       <FlatList
         data={menuData.pizzas}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => (
-          <MenuItem nome={item.nome} descricao={item.descricao} preco={item.preco} />
-        )}
+        renderItem={({ item }) => <MenuItem item={item} iconName="pizza-outline" />}
         contentContainerStyle={styles.listContent}
       />
     </View>
@@ -20,18 +18,7 @@ export default function Tela1() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#F8F9FA',
-    paddingHorizontal: 16,
-  },
-  headerTitle: {
-    fontSize: 22,
-    fontWeight: 'bold',
-    color: '#D35400',
-    marginVertical: 16,
-  },
-  listContent: {
-    paddingBottom: 20,
-  },
+  container: { flex: 1, backgroundColor: '#F8F9FA', paddingHorizontal: 16 },
+  headerTitle: { fontSize: 20, fontWeight: 'bold', color: '#002855', marginVertical: 14 },
+  listContent: { paddingBottom: 20 },
 });
